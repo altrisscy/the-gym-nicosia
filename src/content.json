@@ -1,0 +1,30 @@
+{
+  "home": [
+    { "type": "copy", "eyebrow": "Old Nicosia · Est. for good times", "title": "Come hungry. Stay a little longer.", "body": "Brunch that rolls into cocktails, plates made for sharing, and a room that always feels like the right place to be.", "primaryCta": "Reserve a table", "secondaryCta": "Explore the menu" },
+    { "type": "highlight", "title": "Brunch, unhurried", "body": "Late mornings, excellent coffee and generous plates — served from 10:30." },
+    { "type": "highlight", "title": "Drinks with intent", "body": "Seasonal cocktails, local beer and a wine list made for lingering." },
+    { "type": "highlight", "title": "Dinner, shared", "body": "Mediterranean produce, open-flame cooking and plates for the whole table." }
+  ],
+  "menu": [
+    { "type": "copy", "eyebrow": "From morning to late", "title": "Food worth gathering around", "body": "Our menu follows the day: bright brunch plates, generous sharing food and thoughtful drinks. Ask the team about today’s specials." },
+    { "type": "item", "category": "Brunch", "name": "The Gym Benedict", "description": "Poached eggs, slow-cooked pork, toasted brioche, smoked hollandaise", "price": "€14" },
+    { "type": "item", "category": "Brunch", "name": "Whipped feta toast", "description": "Sourdough, heritage tomatoes, basil oil, za’atar", "price": "€11" },
+    { "type": "item", "category": "Brunch", "name": "Citrus granola bowl", "description": "Greek yoghurt, house granola, orange blossom, seasonal fruit", "price": "€9" },
+    { "type": "item", "category": "To share", "name": "Charred octopus", "description": "Yellow split-pea fava, capers, preserved lemon", "price": "€19" },
+    { "type": "item", "category": "To share", "name": "Halloumi & hot honey", "description": "Grilled Cyprus halloumi, thyme, roasted grapes", "price": "€12" },
+    { "type": "item", "category": "To share", "name": "Lamb shoulder", "description": "Seven-spice lamb, smoked aubergine, flatbread", "price": "€24" },
+    { "type": "item", "category": "Cocktails", "name": "Old Town Sour", "description": "Cyprus brandy, fig leaf, lemon, bitters", "price": "€11" },
+    { "type": "item", "category": "Cocktails", "name": "Midnight Gym", "description": "Aged rum, carob, coffee, orange", "price": "€12" },
+    { "type": "item", "category": "Cocktails", "name": "Garden Highball", "description": "Gin, cucumber, basil, tonic", "price": "€10" }
+  ],
+  "about": [
+    { "type": "copy", "eyebrow": "Our corner of the old town", "title": "A neighbourhood place with a restless spirit", "body": "The Gym is where Nicosia meets from late morning until late at night — a bar, a kitchen and a familiar table, all under one roof." },
+    { "type": "value", "title": "Produce first", "body": "We start with the season and source with care, letting Cyprus lead every plate." },
+    { "type": "value", "title": "Open to everyone", "body": "Coffee at the bar, a long brunch, one last drink — arrive exactly as you are." },
+    { "type": "value", "title": "Made for Nicosia", "body": "Local flavours, international curiosity and the energy of the old city around us." }
+  ],
+  "reservations": [
+    { "type": "copy", "eyebrow": "Your table is waiting", "title": "Make a reservation", "body": "Join us for brunch, dinner or drinks in the heart of old Nicosia. For groups of eight or more, please call us directly." },
+    { "type": "note", "title": "Good to know", "body": "We hold tables for 15 minutes. Outdoor seating is available on request and subject to weather. The entrance and restroom are wheelchair accessible." }
+  ]
+}
