@@ -5,7 +5,7 @@ A four-page restaurant website built with React 19, Vite, TypeScript, Tailwind C
 ## Local development
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 npm run dev
 ```
 
