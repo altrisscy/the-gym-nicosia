@@ -1,33 +1,15 @@
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
-import { SiteLayout } from '@/components/SiteLayout'
-import Home from '@/pages/Home'
-import Menu from '@/pages/Menu'
-import About from '@/pages/About'
-import Reservations from '@/pages/Reservations'
-
-function ScrollToTop() {
-  const { pathname } = useLocation()
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-  }, [pathname])
-  return null
-}
-
+import { lazy, Suspense, useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
+const Sculpture = lazy(() => import('./Sculpture'))
 export default function App() {
-  return (
-    <>
-      <ScrollToTop />
-      <Routes>
-        <Route element={<SiteLayout />}>
-          <Route index element={<Navigate to="/home" replace />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/reservations" element={<Reservations />} />
-          <Route path="*" element={<Navigate to="/home" replace />} />
-        </Route>
-      </Routes>
-    </>
-  )
+ const [open,setOpen]=useState(false)
+ useEffect(()=>{const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));const scroll=()=>document.documentElement.style.setProperty('--progress',`${scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100}%`);window.addEventListener('scroll',scroll,{passive:true});return()=>{observer.disconnect();window.removeEventListener('scroll',scroll)}},[])
+ return <><Helmet><title>The Gym — A taste of the old town</title><meta name="description" content="Food, brunch and cocktails at The Gym, 89 Onasagorou, Nicosia. Call to reserve your table in the old town." /></Helmet><a className="skip" href="#story">Skip to content</a><div className="progress"/><header><a href="#" className="wordmark">THE GYM<span>NICOSIA</span></a><button className="menu-toggle" aria-expanded={open} aria-controls="navigation" onClick={()=>setOpen(!open)}>{open?'Close −':'Menu +'}</button><nav id="navigation" className={open?'open':''}>{[['The place','story'],['Food & drink','taste'],['Find us','visit']].map(([t,id])=><a key={id} href={'#'+id} onClick={()=>setOpen(false)}>{t}</a>)}</nav><a className="reserve" href="tel:+35722002001">Book a table ↗</a></header><main>
+ <section className="hero"><div className="hero-top"><span>BAR · KITCHEN · GOOD COMPANY</span><span>89 ONASAGOROU, NICOSIA</span></div><h1>A taste of<br/>the <em>old town.</em></h1><div className="hero-art" aria-hidden="true"><Suspense fallback={<div className="sculpture-fallback">G</div>}><Sculpture/></Suspense></div><div className="hero-bottom"><p>Late mornings.<br/>Long conversations.<br/>One more round.</p><a href="#story" className="scroll-link">↓ <span>SCROLL TO EXPLORE</span></a><span className="edition">35°10′ N<br/>33°21′ E</span></div></section>
+ <section className="photo-banner"><img src="/images/hero-dinner.webp" alt="Warmly lit table with food and drinks" fetchPriority="high"/><div className="photo-caption"><span>COME FOR A BITE.</span><span>STAY FOR THE EVENING.</span></div></section>
+ <section id="story" className="story section-pad"><div className="section-label reveal">01 / THE PLACE</div><div><h2 className="reveal">Some places<br/>just <em>feel right.</em></h2><div className="story-copy reveal"><p>In the heart of Nicosia’s old town, the day has its own rhythm. Coffee gives way to brunch. The table fills. The evening finds you.</p><p>A bar, a kitchen, a place to settle in. Welcome to The Gym.</p><a className="text-link" href="#visit">Find your seat ↗</a></div></div></section>
+ <div className="ticker" aria-hidden="true"><div>GOOD FOOD. GOOD COMPANY. THE GYM. GOOD FOOD. GOOD COMPANY. THE GYM.</div></div>
+ <section id="taste" className="taste section-pad"><div className="section-label reveal">02 / FROM DAY TO NIGHT</div><div className="taste-heading reveal"><h2>Follow your<br/><em>appetite.</em></h2><p>Something for the table.<br/>Something in your glass.<br/>Nowhere else to be.</p></div><div className="editorial-grid"><article className="food-card reveal"><div className="image-wrap"><img src="/images/brunch-table.webp" alt="A brunch spread ready to share" loading="lazy"/></div><div className="card-meta">01 — SLOW MORNINGS</div><h3>Make a morning of it.</h3><p>Coffee, brunch and a little time to yourself.</p></article><article className="food-card offset reveal"><div className="image-wrap"><img src="/images/interior.webp" alt="Atmospheric dining room" loading="lazy"/></div><div className="card-meta">02 — AFTER HOURS</div><h3>Let the night unfold.</h3><p>Food, cocktails and conversations that linger.</p></article></div><div className="menu-note reveal"><p>For today’s menu, specials and availability,<br/>get in touch with the team.</p><a className="round-link" href="tel:+35722002001" aria-label="Call for the current menu">↗</a></div></section>
+ <section className="invitation"><div className="reveal"><span>NO RUSH. YOU’RE HERE NOW.</span><h2>Your kind<br/>of <em>place.</em></h2><a className="pill" href="tel:+35722002001">Let’s make a reservation ↗</a></div></section>
+ <section id="visit" className="visit section-pad"><div className="section-label reveal">03 / SEE YOU HERE</div><div className="visit-grid"><h2 className="reveal">Meet you<br/>at <em>The Gym.</em></h2><div className="visit-details reveal"><h3>In the old town</h3><p>89 Onasagorou<br/>1011 Nicosia, Cyprus</p><a className="text-link" href="https://www.google.com/maps/search/?api=1&query=The%20Gym%2089%20Onasagorou%20Nicosia" target="_blank" rel="noreferrer">Get directions ↗</a><h3>Make it a date</h3><a className="phone" href="tel:+35722002001">+357 22 002001</a><p>Call for opening hours, the current menu<br/>and table reservations.</p></div></div></section></main><footer><a href="#" className="footer-logo">THE GYM<span>↗</span></a><div><span>BAR & KITCHEN · NICOSIA</span><span>GOOD TIMES, ALL IN GOOD TASTE.</span><a href="#">BACK TO TOP ↑</a></div></footer></>
 }
